@@ -2,17 +2,36 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Подсказки HTML</title>
+	<title>Часы Куйтуна Ирк.Область</title>
+     <link rel="icon" href="favicon.ico" type="images/x-icon">
+     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="container">
-<h1>Комманда &ltH1&gt Создаёт Заголовок</h1>
-<h1>Комманда &ltH2&gt Создаёт Подзаголовок</h1>
-<h3>Ещё есть разновидности этих комманд по типу &ltH3&gt,&ltH4&gt,&ltH5&gt,&ltH6&gt.</h3>
-<hr>
-<h1>Комманда &lthr&gt<br>
-<h3> эта комманда делает черту которая показана выше</h3>
-&amp;		
-</div>
+
+<div class="clock"></div>
+
+
+<!--Сами Часы написанные на JavaScript-->
+<script>
+
+    let clock = document.querySelector('.clock')
+
+    function time() {
+    let date = new Date();
+    let hours = date.getHours();
+    let min = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+    let sec = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+
+    //Если код добавляющий 0 не сработал то тут это проверяется и выполняется снова пока не заработает
+
+    if (hours<10) {hours = '0'+hours;}
+    clock.innerHTML = `${hours}:${min}:${sec}`;
+}
+
+    setInterval(time , 1000);
+    
+</script>
+
 </body>
+
 </html>
